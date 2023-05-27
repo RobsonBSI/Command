@@ -27,4 +27,17 @@ class AtendenteTest {
 
         assertEquals("Comanda Fechada", comanda.getStatus());
     }
+
+    @Test
+    void deveCancelarFechamentoComanda() {
+        Pedido aberturaPedido = new AberturaComanda(comanda);
+        Pedido fecharcomanda = new FechamentoComanda(comanda);
+
+        atendente.executarPedido(aberturaPedido);
+        atendente.executarPedido(fecharcomanda);
+
+        atendente.cancelarUltimoPedido();
+
+        assertEquals("Comanda Aberta", comanda.getStatus());
+    }
 }
