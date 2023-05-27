@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class Pedido {
+public interface Pedido {
+    void execultar();
+    void cancelar();
+
 }
